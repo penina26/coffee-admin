@@ -8,7 +8,7 @@ The application demonstrates proficiency in advanced React concepts, including s
 **The Landing page**<br>
 ![alt text](image.png)
 
-** The Form**<br>
+**The Form**<br>
 ![alt text](image-1.png)
 
 ## Key Features
@@ -43,15 +43,15 @@ npm install
 
 This project is configured to run both the Vite frontend development server and the JSON Server backend simultaneously using a single command.
 
-**Start the development environment:**
+**Start the development environment:**<br>
 ```
 npm start
 ```
 * *(Note: This triggers the concurrently script defined in the package.json, spinning up the React app on Vite's default port and the JSON Server on http://localhost:3001)*
 
-** Running the Test Suite**
-This application includes a testing suite built with Vitest and React Testing Library to verify component rendering, form validation, and simulated user interactions.
-**Execute the tests:**
+**Running the Test Suite**<br>
+This application includes a testing suite built with Vitest and React Testing Library to verify component rendering, form validation, and simulated user interactions.<br>
+**Execute the tests:**<br>
 ```
 npm run test
 ```
