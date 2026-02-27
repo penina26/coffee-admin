@@ -1,20 +1,18 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
+// 1. Import the MemoryRouter
+import { MemoryRouter } from 'react-router-dom';
 import ProductForm from '../ProductForm.jsx';
 import { useProducts } from '../../hooks/useProducts.js';
 
-//  Tell Vitest to intercept the custom hook
 vi.mock('../../hooks/useProducts.js');
 
 describe('ProductForm Component', () => {
-    // Create a fake "onSubmit" function using Vitest
     const mockOnSubmit = vi.fn();
 
     beforeEach(() => {
-        // Clear old test data before each run
         vi.clearAllMocks();
 
-        // Provide the fake data
         vi.mocked(useProducts).mockReturnValue({
             locations: [
                 { id: '1', name: 'Addis Ababa' },
@@ -26,7 +24,12 @@ describe('ProductForm Component', () => {
     });
 
     test('renders all form inputs correctly', () => {
-        render(<ProductForm onSubmit={mockOnSubmit} />);
+        // 2. Wrap the component in the MemoryRouter
+        render(
+            <MemoryRouter>
+                <ProductForm onSubmit={mockOnSubmit} />
+            </MemoryRouter>
+        );
 
         expect(screen.getByText(/Add New Product/i)).toBeInTheDocument();
         expect(screen.getByLabelText(/Coffee Name/i)).toBeInTheDocument();
@@ -34,7 +37,12 @@ describe('ProductForm Component', () => {
     });
 
     test('prevents submission and shows errors when fields are empty', async () => {
-        render(<ProductForm onSubmit={mockOnSubmit} />);
+        // Wrap here as well
+        render(
+            <MemoryRouter>
+                <ProductForm onSubmit={mockOnSubmit} />
+            </MemoryRouter>
+        );
 
         const submitButton = screen.getByRole('button', { name: /Submit Product/i });
         fireEvent.click(submitButton);
@@ -46,7 +54,12 @@ describe('ProductForm Component', () => {
     });
 
     test('submits successfully when valid data is entered', async () => {
-        render(<ProductForm onSubmit={mockOnSubmit} />);
+        // And wrap here
+        render(
+            <MemoryRouter>
+                <ProductForm onSubmit={mockOnSubmit} />
+            </MemoryRouter>
+        );
 
         fireEvent.change(screen.getByLabelText(/Coffee Name/i), { target: { value: 'Test Reserve' } });
         fireEvent.change(screen.getByLabelText(/Origin/i), { target: { value: 'Ethiopia' } });
