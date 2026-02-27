@@ -60,8 +60,9 @@ export default function ProductForm({ onSubmit }) {
             <h2 className="mb-4 text-info fw-bold">Add New Product</h2>
 
             <div className="mb-3">
-                <label className="form-label text-light">Coffee Name</label>
+                <label htmlFor="coffeeName" className="form-label text-light">Coffee Name</label>
                 <input
+                    id="coffeeName"
                     className={`form-control bg-secondary text-light border-0 ${errors.name ? 'is-invalid' : ''}`}
                     value={form.name}
                     onChange={(e) => update("name", e.target.value)}
@@ -70,8 +71,9 @@ export default function ProductForm({ onSubmit }) {
             </div>
 
             <div className="mb-3">
-                <label className="form-label text-light">Description</label>
+                <label htmlFor="coffeeDescription" className="form-label text-light">Description</label>
                 <textarea
+                    id="coffeeDescription"
                     className="form-control bg-secondary text-light border-0"
                     rows="2"
                     value={form.description}
@@ -81,8 +83,9 @@ export default function ProductForm({ onSubmit }) {
 
             <div className="row mb-3">
                 <div className="col-md-6">
-                    <label className="form-label text-light">Origin</label>
+                    <label htmlFor="coffeeOrigin" className="form-label text-light">Origin</label>
                     <input
+                        id="coffeeOrigin"
                         className={`form-control bg-secondary text-light border-0 ${errors.origin ? 'is-invalid' : ''}`}
                         value={form.origin}
                         onChange={(e) => update("origin", e.target.value)}
@@ -91,8 +94,9 @@ export default function ProductForm({ onSubmit }) {
                 </div>
 
                 <div className="col-md-6 mt-3 mt-md-0">
-                    <label className="form-label text-light">Price ($)</label>
+                    <label htmlFor="coffeePrice" className="form-label text-light">Price ($)</label>
                     <input
+                        id="coffeePrice"
                         type="number"
                         className={`form-control bg-secondary text-light border-0 ${errors.price ? 'is-invalid' : ''}`}
                         value={form.price}
@@ -103,11 +107,12 @@ export default function ProductForm({ onSubmit }) {
             </div>
 
             <div className="mb-4">
-                <label className="form-label text-light">Location</label>
+                <label htmlFor="coffeeLocation" className="form-label text-light">Location</label>
                 {locationsLoading && <div className="form-text text-muted">Loading locations...</div>}
                 {locationsError && <div className="form-text text-danger">{locationsError}</div>}
 
                 <select
+                    id="coffeeLocation"
                     className="form-select bg-secondary text-light border-0"
                     value={form.location}
                     onChange={(e) => update("location", e.target.value)}
