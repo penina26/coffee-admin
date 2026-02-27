@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
-// 1. Import the MemoryRouter
 import { MemoryRouter } from 'react-router-dom';
 import ProductForm from '../ProductForm.jsx';
 import { useProducts } from '../../hooks/useProducts.js';
@@ -24,7 +23,7 @@ describe('ProductForm Component', () => {
     });
 
     test('renders all form inputs correctly', () => {
-        // 2. Wrap the component in the MemoryRouter
+
         render(
             <MemoryRouter>
                 <ProductForm onSubmit={mockOnSubmit} />
@@ -37,7 +36,7 @@ describe('ProductForm Component', () => {
     });
 
     test('prevents submission and shows errors when fields are empty', async () => {
-        // Wrap here as well
+
         render(
             <MemoryRouter>
                 <ProductForm onSubmit={mockOnSubmit} />
@@ -54,7 +53,7 @@ describe('ProductForm Component', () => {
     });
 
     test('submits successfully when valid data is entered', async () => {
-        // And wrap here
+
         render(
             <MemoryRouter>
                 <ProductForm onSubmit={mockOnSubmit} />
