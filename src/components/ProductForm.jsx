@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { useProducts } from "../hooks/useProducts.js";
+import { toast } from 'react-toastify';
 
 export default function ProductForm({ onSubmit }) {
     const { locations, locationsLoading, locationsError } = useProducts();
+    const navigate = useNavigate();
 
     const defaultLoc = useMemo(
         () => (locations[0]?.name ? locations[0].name : "Addis Ababa"),
@@ -48,10 +51,11 @@ export default function ProductForm({ onSubmit }) {
 
             setForm({ name: "", description: "", origin: "", price: "", location: defaultLoc });
             setErrors({});
-            alert("Product successfully added!");
+            toast.success("Product successfully added!");
+            navigate("/products");
         } catch (error) {
             console.error("Submission failed:", error);
-            alert("Failed to add product.");
+            toast.error("Failed to add product. Please try again.");
         }
     }
 

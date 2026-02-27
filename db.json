@@ -7,6 +7,30 @@
       "origin": "Ethiopia",
       "price": 22,
       "location": "Addis Ababa"
+    },
+    {
+      "id": "0516",
+      "name": "Rift Valley Gold",
+      "description": "A rich, aromatic roast with berry sweetness and a smooth caramel finish.",
+      "origin": "Kenya",
+      "price": 20,
+      "location": "Nairobi"
+    },
+    {
+      "id": "542c",
+      "name": "Rift Valley Gold",
+      "description": "Rich and aromatic with berry sweetness and a smooth caramel finish.",
+      "origin": "Kenya (Nyeri)",
+      "price": 14.5,
+      "location": "Nairobi"
+    },
+    {
+      "id": "d656",
+      "name": "Highlands Mocha Mist",
+      "description": "Velvety cocoa notes with a gentle nutty aftertaste and low acidity.",
+      "origin": "Ethiopia (Sidama)",
+      "price": 12,
+      "location": "Nairobi"
     }
   ],
   "locations": [
@@ -20,7 +44,7 @@
     },
     {
       "id": "3",
-      "name": "Dadaab"
+      "name": "Kampala"
     }
   ]
 }

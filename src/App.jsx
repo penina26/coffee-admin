@@ -1,4 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import LandingPage from "./pages/LandingPage.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import ProductListPage from "./pages/ProductListPage.jsx";
@@ -24,6 +26,7 @@ export default function App() {
           <Route path="/add" element={<AdminPage />} />
         </Routes>
       </main>
+      <ToastContainer position="bottom-right" theme="dark" autoClose={3000} />
     </div>
   );
 }

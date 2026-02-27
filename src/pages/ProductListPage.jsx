@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { useProducts } from "../hooks/useProducts.js";
+import Swal from 'sweetalert2';
 
 export default function ProductListPage() {
     const { products, loading, error, deleteProduct } = useProducts();
@@ -16,6 +17,34 @@ export default function ProductListPage() {
 
     if (loading) return <div className="container mt-5 text-secondary">Loading inventory...</div>;
     if (error) return <div className="container mt-5 text-danger">Error loading data: {error}</div>;
+
+    // sweet alert 
+    const handleDeleteClick = (productId, productName) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `You are about to delete ${productName}. This cannot be undone.`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#dc3545',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Yes, delete it!',
+            background: '#212529',
+            color: '#f8f9fa'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                deleteProduct(productId);
+
+                Swal.fire({
+                    title: 'Deleted!',
+                    text: 'The product has been removed.',
+                    icon: 'success',
+                    background: '#212529',
+                    color: '#f8f9fa'
+                });
+            }
+        });
+    };
 
     return (
         <div className="bg-dark text-light min-vh-100 py-5 font-monospace">
@@ -65,7 +94,7 @@ export default function ProductListPage() {
 
                                         <div className="mt-4">
                                             <button
-                                                onClick={() => deleteProduct(product.id)}
+                                                onClick={() => handleDeleteClick(product.id, product.name)}
                                                 className="btn btn-outline-danger btn-sm"
                                             >
                                                 Delete

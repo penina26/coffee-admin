@@ -1,16 +1,84 @@
-# React + Vite
+# Coffee Admin Portal - React SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a React-based Single Page Application (SPA). It serves as an administrative dashboard for an e-commerce coffee website, allowing users to view, add, search, and delete specialty coffee inventory. 
 
-Currently, two official plugins are available:
+The application demonstrates proficiency in advanced React concepts, including state management, custom hooks, client-side routing, and simulated backend interactions using a JSON server.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**The Landing page**<br>
+![alt text](image.png)
 
-## React Compiler
+** The Form**<br>
+![alt text](image-1.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Features
+* **Full CRUD Operations:** Seamlessly read, create, and delete coffee products interacting with a simulated backend.
+* **Dynamic Search:** Real-time, highly optimized search functionality using React's `useMemo` hook to filter inventory without unnecessary re-renders.
+* **Client-Side Routing:** Built with React Router to provide smooth, instantaneous navigation between the Landing Page, Inventory Dashboard, and Add Product form.
+* **Custom Hooks:** Implements a robust `useProducts` hook to abstract fetch logic, manage loading/error states, and handle `AbortController` cleanup.
+* **Enhanced UI/UX:** Styled responsively with Bootstrap 5 and features non-blocking notifications via React-Toastify and deletion confirmations via SweetAlert2.
 
-## Expanding the ESLint configuration
+## Technologies Used
+* **Frontend:** React (initialized via Vite), React Router DOM
+* **Styling & UI:** Bootstrap 5, React-Toastify, SweetAlert2
+* **Backend Simulation:** JSON Server
+* **Testing:** Vitest, React Testing Library, Jest-DOM
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Installation & Setup
+
+**1. Clone the repository:**
+```
+git clone https://github.com/penina26/coffee-admin.git
+cd coffee-admin
+```
+**2. Install dependencies:**
+```
+npm install
+```
+
+---
+## Running the Application
+
+This project is configured to run both the Vite frontend development server and the JSON Server backend simultaneously using a single command.
+
+**Start the development environment:**
+```
+npm start
+```
+* *(Note: This triggers the concurrently script defined in the package.json, spinning up the React app on Vite's default port and the JSON Server on http://localhost:3001)*
+
+** Running the Test Suite**
+This application includes a testing suite built with Vitest and React Testing Library to verify component rendering, form validation, and simulated user interactions.
+**Execute the tests:**
+```
+npm run test
+```
+---
+## Project Structure
+
+```text
+coffee-admin/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── ProductForm.jsx
+│   │   └── __tests__/
+│   │       └── ProductForm.test.jsx
+│   ├── hooks/
+│   │   └── useProducts.js
+│   ├── pages/
+│   │   ├── AdminPage.jsx
+│   │   ├── LandingPage.jsx
+│   │   ├── ProductListPage.jsx
+│   │   └── __tests__/
+│   │       └── LandingPage.test.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── setupTests.js
+├── db.json
+├── package.json
+├── vite.config.js
+└── README.md
+```
