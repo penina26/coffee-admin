@@ -1,32 +1,29 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
-import AdminPage from "./pages/AdminPage";
-import ProductListPage from "./pages/ProductListPage";
+import { Routes, Route, Link } from "react-router-dom";
+import LandingPage from "./pages/LandingPage.jsx";
+import AdminPage from "./pages/AdminPage.jsx";
+import ProductListPage from "./pages/ProductListPage.jsx";
 
 export default function App() {
   return (
-    <Router>
-      <nav className="navbar">
-        <h1>Coffee Admin Portal</h1>
-        <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/products">Manage Products</Link>
-          <Link to="/add">Add New Product</Link>
+    <div className="bg-dark min-vh-100 font-monospace">
+      {/* Bootstrap styled Navigation */}
+      <nav className="navbar navbar-expand navbar-dark bg-dark border-bottom border-secondary px-4 py-3">
+        <span className="navbar-brand text-info fw-bold fs-4">Coffee Admin</span>
+        <div className="navbar-nav ms-auto gap-3">
+          <Link to="/" className="nav-link text-light">Home</Link>
+          <Link to="/products" className="nav-link text-light">Inventory</Link>
+          <Link to="/add" className="btn btn-outline-info btn-sm mt-1">Add Product</Link>
         </div>
       </nav>
 
-      <main className="content">
+      {/* Main Content Area */}
+      <main>
         <Routes>
-          {/* Landing Page */}
           <Route path="/" element={<LandingPage />} />
-
-          {/* Product Search and Display */}
           <Route path="/products" element={<ProductListPage />} />
-
-          {/* Form for Adding Products */}
           <Route path="/add" element={<AdminPage />} />
         </Routes>
       </main>
-    </Router>
+    </div>
   );
 }
