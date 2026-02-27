@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
-import ProductForm from '../../components/ProductForm.jsx';
+import ProductForm from '../ProductForm.jsx';
 import { useProducts } from '../../hooks/useProducts.js';
 
 //  Tell Vitest to intercept the custom hook
