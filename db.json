@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Yirgacheffe Reserve",
+      "description": "Bright, floral, citrus notes.",
+      "origin": "Ethiopia",
+      "price": 22,
+      "location": "Addis Ababa"
+    }
+  ],
+  "locations": [
+    {
+      "id": "1",
+      "name": "Addis Ababa"
+    },
+    {
+      "id": "2",
+      "name": "Nairobi"
+    },
+    {
+      "id": "3",
+      "name": "Dadaab"
+    }
+  ]
+}

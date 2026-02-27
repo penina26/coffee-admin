@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --nav-bg: #8a7d72;
+  --page-bg: #7c5f4b;
+  --sidebar-bg: #b9ab9b;
+  --card-bg: #d9d9d9;
+  --text-dark: #4b3a2f;
+  --text-light: #ffffff;
+  --accent: #7a5cff;
+  --danger: #b23b3b;
+  --btn: #6b2f2a;
+}
+
+html,
+body {
+  height: 100%;
+
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--page-bg);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  height: 110px;
+  background: var(--nav-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.navlink {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 44px;
+  font-weight: 300;
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+}
+
+.navlink:nth-child(1) {
+  justify-self: start;
+}
+
+.navlink:nth-child(2) {
+  justify-self: center;
+}
+
+.navlink:nth-child(3) {
+  justify-self: end;
+}
+
+.navlink[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -14px;
+  height: 6px;
+  background: var(--text-light);
+}
+
+.main {
+  flex: 1;
+  padding: 0;
+}
+
+.home {
+  min-height: calc(100vh - 110px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px 16px;
+}
+
+.home h1 {
+  margin: 0;
+  font-size: 96px;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 2px;
+}
+
+.home p {
+  margin: 12px 0 0;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.15;
+}
+
+.shop {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  min-height: calc(100vh - 110px);
+}
+
+.sidebar {
+  background: var(--sidebar-bg);
+  padding: 22px;
+}
+
+.search {
+  width: 100%;
+  height: 54px;
+  border: 0;
+  outline: none;
+  border-radius: 999px;
+  padding: 0 22px;
+  font-size: 40px;
+  background: var(--card-bg);
+  color: #7a7a7a;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+  font-size: 26px;
+  color: #5a5a5a;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: #ffffff;
+}
+
+.gridWrap {
+  padding: 28px 38px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 34px;
+  align-items: start;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 20px 22px 18px;
+  min-height: 230px;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cardTitle {
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--text-dark);
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+
+.muted {
+  font-size: 34px;
+  font-weight: 300;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.price {
+  font-size: 34px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: auto;
+}
+
+.card input {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid #fff;
+  padding: 0 12px;
+  font-size: 18px;
+  margin-top: auto;
+  outline: none;
+}
+
+.card input:focus {
+  border-color: var(--accent);
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cardActions button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--btn);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cardActions button:hover {
+  filter: brightness(1.05);
+}
+
+.cardActions .danger {
+  background: var(--danger);
+}
+
+.center {
+  min-height: calc(100vh - 110px);
+  display: grid;
+  place-items: center;
+  padding: 40px 16px;
+}
+
+.formCard {
+  width: min(680px, 92vw);
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 18px;
+  padding: 28px 26px;
+}
+
+.formCard h2 {
+  margin: 0 0 18px;
+  text-align: center;
+  color: #c7a6ff;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.formCard label {
+  display: block;
+  margin: 14px 0 6px;
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.formCard input,
+.formCard select {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  padding: 0 12px;
+  outline: none;
+  background: #fff;
+  font-size: 14px;
+}
+
+.formCard input:focus,
+.formCard select:focus {
+  border-color: var(--accent);
+}
+
+.invalid {
+  border-color: var(--danger) !important;
+}
+
+.err {
+  margin-top: 6px;
+  color: var(--danger);
+  font-size: 12px;
+}
+
+.formCard button {
+  display: block;
+  margin: 22px auto 0;
+  width: 160px;
+  height: 48px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--btn);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.formCard button:hover {
+  filter: brightness(1.05);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 0 24px;
+  }
+
+  .navlink {
+    font-size: 34px;
+  }
+
+  .home h1 {
+    font-size: 72px;
+  }
+
+  .home p {
+    font-size: 30px;
+  }
+
+  .shop {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .gridWrap {
+    padding: 22px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .navlink {
+    font-size: 26px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detailWrap {
+  min-height: calc(100vh - 110px);
+  display: grid;
+  place-items: center;
+  padding: 40px 16px;
+}
+
+.detailCard {
+  width: min(720px, 92vw);
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.detailTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.backLink {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.detailTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.detailForm label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.detailForm input,
+.detailForm select {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  padding: 0 12px;
+  outline: none;
+  background: #fff;
+  font-size: 14px;
+}
+
+.detailForm input:focus,
+.detailForm select:focus {
+  border-color: var(--accent);
+}
+
+.detailActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.detailActions button {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--btn);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.detailActions .danger {
+  background: var(--danger);
+}
